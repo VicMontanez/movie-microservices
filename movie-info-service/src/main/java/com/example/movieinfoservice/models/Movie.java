@@ -8,6 +8,11 @@ public class Movie {
         return movieId;
     }
 
+    public Movie(String movieId, String name) {
+        this.movieId = movieId;
+        this.name = name;
+    }
+
     public void setMovieId(String movieId) {
         this.movieId = movieId;
     }
