@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/catalog")
@@ -22,9 +23,11 @@ public class MovieCatalogResource {
                 new Rating("5678", 3)
         );
 
-
-        return Collections.singletonList(
-                new CatalogItem("Transformers", "Test", 4)
-        );
+       return  ratings.stream().map(rating ->
+            new CatalogItem("Transformers", "Test", 4))
+                .collect(Collectors.toList());
+//        return Collections.singletonList(
+//                new CatalogItem("Transformers", "Test", 4)
+//        );
     }
 }
