@@ -1,6 +1,7 @@
 package com.example.moviecatalogservice.resources;
 
 import com.example.moviecatalogservice.models.CatalogItem;
+import com.example.moviecatalogservice.models.Movie;
 import com.example.moviecatalogservice.models.Rating;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,7 @@ public class MovieCatalogResource {
     public List<CatalogItem> getCatalog(@PathVariable("userId") String userId) {
 
         RestTemplate restTemplate = new RestTemplate();
+        restTemplate.getForObject("localhost:8082/movies/foo", Movie.class);
 
         List<Rating> ratings = Arrays.asList(
                 new Rating("1234", 4),
