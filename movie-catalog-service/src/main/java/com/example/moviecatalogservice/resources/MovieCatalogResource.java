@@ -22,12 +22,11 @@ public class MovieCatalogResource {
     @Autowired
     private RestTemplate restTemplate;
 
+    @Autowired
+    private WebClient.Builder webClientBuilder;
+
     @RequestMapping("/{userId}")
     public List<CatalogItem> getCatalog(@PathVariable("userId") String userId) {
-
-        WebClient.Builder builder = WebClient.builder();
-
-        RestTemplate restTemplate = new RestTemplate();
 
         List<Rating> ratings = Arrays.asList(
                 new Rating("1234", 4),
